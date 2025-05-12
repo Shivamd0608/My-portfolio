@@ -1,0 +1,120 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 217 32% 11%;
+    --foreground: 213 40% 98%;
+
+    --card: 217 32% 17%;
+    --card-foreground: 213 40% 98%;
+
+    --popover: 217 32% 17%;
+    --popover-foreground: 213 40% 98%;
+
+    --primary: 170 100% 69%;
+    --primary-foreground: 217 32% 11%;
+
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 213 40% 98%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 32% 17%;
+    --accent-foreground: 213 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 213 40% 98%;
+
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 213 40% 98%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-navy text-slate-light font-sans scroll-smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold text-slate-light;
+  }
+
+  ::selection {
+    @apply bg-highlight/20 text-highlight;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply container max-w-6xl mx-auto px-6 py-28 md:py-32;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-12 flex items-center gap-4;
+  }
+  
+  .section-title::before {
+    content: "";
+    @apply block bg-highlight h-[1px] w-16;
+  }
+
+  .section-title-number {
+    @apply text-highlight font-mono text-xl mr-2;
+  }
+  
+  .nav-link {
+    @apply relative text-slate overflow-hidden hover:text-highlight transition-colors duration-300 py-2;
+  }
+  
+  .nav-link::after {
+    content: "";
+    @apply absolute left-0 bottom-0 w-full h-[2px] bg-highlight scale-x-0 origin-bottom-right transition-transform duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply scale-x-100 origin-bottom-left;
+  }
+
+  .animated-skill-bar {
+    @apply h-2 bg-highlight/30 rounded-full overflow-hidden relative;
+  }
+  
+  .animated-skill-bar::after {
+    content: "";
+    @apply absolute top-0 left-0 h-full bg-highlight rounded-full animate-pulse-slow;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-highlight/10;
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #64ffda, #349780);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Particle canvas styles */
+.particles-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.4;
+}
